@@ -576,6 +576,20 @@ func TestScore(t *testing.T) {
 			},
 			expectedScore: 12,
 		},
+		{
+			m: model{
+				life: 0,
+				dungeon: []deck.Card{
+					{Suit: deck.Spade, Rank: 5},
+					{Suit: deck.Club, Rank: 7},
+				},
+				room: []deck.Card{
+					{Suit: deck.Spade, Rank: 8},
+				},
+				lastCard: deck.Card{Suit: deck.Spade, Rank: 9},
+			},
+			expectedScore: -20,
+		},
 	}
 
 	for _, tt := range tests {

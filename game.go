@@ -160,14 +160,14 @@ func (m *model) gameOverCheck() {
 func (m model) score() int {
 	score := m.life
 	if len(m.dungeon) > 0 {
-		for _, c := range m.dungeon {
+		for _, c := range append(m.dungeon, m.room...) {
 			score -= attackStrength(c)
 		}
 		return score
 	}
 
 	if m.lastCard.Suit == deck.Heart {
-		 score += int(m.lastCard.Rank)
+		score += int(m.lastCard.Rank)
 	}
 
 	return score
